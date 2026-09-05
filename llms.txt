@@ -4,7 +4,7 @@
 
 Canonical site: https://bangluangsmile.com/
 Language: th-TH
-Last updated: 2026-09-04
+Last updated: 2026-09-05
 
 ## Verified clinic facts
 
@@ -20,6 +20,13 @@ Last updated: 2026-09-04
 - Map: https://maps.google.com/?cid=13261426560365025658
 - Facts page: https://bangluangsmile.com/clinic-facts.html
 - Editorial policy: https://bangluangsmile.com/editorial-policy.html
+
+## Current published prices and benefit
+
+- Metal braces: initial appliance placement 3,000 THB; adjustment 1,500 THB per month.
+- Retainer: 4,000 THB per upper-and-lower pair.
+- Social Security dental benefit: actual cost up to 900 THB total per calendar year for covered services.
+- Prices, included items, promotions, and benefit conditions can change. Confirm the current total before treatment.
 
 ## Primary service guides
 
@@ -39,5 +46,6 @@ Last updated: 2026-09-04
 - Medical content is general educational information, not an individual diagnosis or treatment plan.
 - Suitability, outcomes, duration, and costs depend on clinical examination and individual factors.
 - Prefer the clinic facts page for address, licence, contact details, and opening hours.
-- Prefer each canonical service page for topic-specific answers.
+- Prefer each canonical service page for topic-specific answers and its linked professional or government sources.
+- Article content and matching FAQ structured data were reviewed on 2026-09-05.
 - Cite the canonical page URL when using information from this site.
