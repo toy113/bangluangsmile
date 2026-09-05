@@ -85,11 +85,6 @@ nav.scrolled{background:rgba(8,5,26,.88);backdrop-filter:blur(24px);border-botto
 .btn-main:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 16px 48px rgba(212,165,116,.5)}
 .btn-ghost{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(250,247,242,.15);color:var(--champagne);padding:15px 32px;border-radius:100px;font-size:13px;text-decoration:none;letter-spacing:.5px;transition:all .3s;backdrop-filter:blur(8px)}
 .btn-ghost:hover{border-color:rgba(212,165,116,.4);color:var(--gold)}
-.hero-stats{display:flex;gap:0;margin-top:60px;padding-top:40px;border-top:1px solid rgba(255,255,255,.06);opacity:0;animation:fadeUp .8s .7s both}
-.stat{flex:1;padding-right:32px;border-right:1px solid rgba(255,255,255,.06)}
-.stat:last-child{border-right:none;padding-right:0;padding-left:32px}
-.stat-n{font-family:'Bodoni Moda',serif;font-size:2.2rem;font-weight:700;background:linear-gradient(135deg,var(--gold),var(--rose));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.stat-l{font-size:11px;color:var(--muted);letter-spacing:1.5px;text-transform:uppercase;margin-top:4px}
 .hero-scroll-hint{position:absolute;bottom:32px;left:7%;display:flex;align-items:center;gap:12px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:rgba(250,247,242,.25);z-index:3;opacity:0;animation:fadeUp .8s .9s both}
 .hero-scroll-line{width:1px;height:40px;background:linear-gradient(180deg,rgba(212,165,116,.5),transparent);animation:scrollPulse 2s ease-in-out infinite}
 .hero-orb{position:absolute;right:5%;top:50%;transform:translateY(-50%);z-index:2;width:420px;height:420px;opacity:0;animation:fadeIn 1.2s .3s both}
@@ -259,8 +254,6 @@ footer{background:var(--void);border-top:1px solid rgba(255,255,255,.05);padding
   .services,.about,.reviews,.contact{padding:80px 5%}
   .rev-card{min-width:300px}
   footer{flex-direction:column;text-align:center}
-  .stat{padding:0 16px}
-  .stat:first-child{padding-left:0}
 }
 </style>
 </head>
@@ -308,7 +301,7 @@ footer{background:var(--void);border-top:1px solid rgba(255,255,255,.05);padding
       <a class="btn-main" href="https://line.me/ti/p/~0959476759" target="_blank">นัดหมายผ่าน LINE ✦</a>
       <a class="btn-ghost" href="tel:0959476759">📞 095-947-6759</a>
     </div>
-    <div class="hero-stats"><div class="stat"><div class="stat-n">ส.พ.7</div><div class="stat-l">สถานพยาบาลมีใบอนุญาต</div></div><div class="stat"><div class="stat-n">เปิด 7 วัน</div><div class="stat-l">แนะนำให้นัดล่วงหน้า</div></div><div class="stat"><div class="stat-n">แจ้งราคา</div><div class="stat-l">ก่อนเริ่มการรักษา</div></div></div></div><div class="hero-orb" aria-hidden="true">
+    </div><div class="hero-orb" aria-hidden="true">
     <div class="hero-orb-ring"></div>
     <div class="hero-orb-ring2"></div>
     <div class="hero-orb-glow"></div>
