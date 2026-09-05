@@ -1,2 +1,0 @@
-# bangluangsmile
-Dental clinic
