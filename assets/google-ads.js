@@ -5,14 +5,24 @@ function gtag() { window.dataLayer.push(arguments); }
 gtag('js', new Date());
 gtag('config', 'AW-16850592359');
 
-// Track every appointment link to the clinic's official LINE account.
+// Track appointment and phone-contact links for Google Ads optimization.
 document.addEventListener('click', function (event) {
-  var link = event.target.closest('a[href*="line.me/ti/p/~0959476759"]');
-  if (!link) return;
+  var lineLink = event.target.closest('a[href*="line.me/ti/p/~0959476759"]');
+  var phoneLink = event.target.closest('a[href="tel:0959476759"]');
 
-  gtag('event', 'conversion', {
-    send_to: 'AW-16850592359/3D_-CLOa7vMcEOfE_uI-',
-    value: 1.0,
-    currency: 'THB'
-  });
+  if (lineLink) {
+    gtag('event', 'conversion', {
+      send_to: 'AW-16850592359/3D_-CLOa7vMcEOfE_uI-',
+      value: 1.0,
+      currency: 'THB'
+    });
+  }
+
+  if (phoneLink) {
+    gtag('event', 'conversion', {
+      send_to: 'AW-16850592359/UzBrCLDhkfQcEOfE_uI-',
+      value: 1.0,
+      currency: 'THB'
+    });
+  }
 });
