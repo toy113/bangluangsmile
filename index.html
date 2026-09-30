@@ -245,6 +245,13 @@ footer{background:var(--void);border-top:1px solid rgba(255,255,255,.05);padding
 .faq-item[open] summary::after{transform:rotate(45deg)}
 .faq-item summary:hover{color:var(--gold)}
 .faq-answer{padding:0 28px 24px;font-size:14px;line-height:1.9;color:var(--muted);font-family:'Sarabun',sans-serif;font-weight:300}
+.related-reads{padding:80px 7%;background:var(--deep)}
+.related-reads .s-header{margin-bottom:32px}
+.related-reads-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.related-reads-grid a{display:block;padding:28px;border:1px solid rgba(212,165,116,.25);border-radius:18px;color:var(--champagne);text-decoration:none;font-family:'Sarabun',sans-serif;line-height:1.7;transition:border-color .2s,transform .2s}
+.related-reads-grid a:hover{border-color:var(--gold);transform:translateY(-3px)}
+.related-reads-grid strong{display:block;color:var(--gold);font-size:17px;margin-bottom:8px}
+.related-reads-grid span{font-size:14px;color:var(--muted)}
 
 /* MOBILE */
 @media(max-width:900px){
@@ -254,6 +261,8 @@ footer{background:var(--void);border-top:1px solid rgba(255,255,255,.05);padding
   .nav-links,.nav-pill{display:none}
   .hero-h1{font-size:clamp(2.2rem,9vw,4rem)}
   .services,.about,.reviews,.contact{padding:80px 5%}
+  .related-reads{padding:64px 5%}
+  .related-reads-grid{grid-template-columns:1fr}
   .rev-card{min-width:300px}
   footer{flex-direction:column;text-align:center}
 }
@@ -447,6 +456,19 @@ footer{background:var(--void);border-top:1px solid rgba(255,255,255,.05);padding
   </div>
 </section>
 
+
+<!-- ARTICLES -->
+<section class="related-reads" aria-label="บทความทันตกรรมที่แนะนำ">
+  <div class="s-header">
+    <span class="s-tag">Dental Guides</span>
+    <h2 class="s-h2">อ่านต่อเรื่อง<em>สุขภาพฟัน</em></h2>
+  </div>
+  <div class="related-reads-grid">
+    <a href="https://bangluangsmile.com/funhai-sai-arai-dee.html"><strong>ฟันหายใส่อะไรดี?</strong><span>เปรียบเทียบฟันปลอม สะพานฟัน และรากฟันเทียม</span></a>
+    <a href="https://bangluangsmile.com/jadfan-ayu-tao-rai-dee.html"><strong>จัดฟันอายุเท่าไรดี?</strong><span>สิ่งที่ควรรู้สำหรับเด็ก วัยรุ่น และผู้ใหญ่</span></a>
+    <a href="https://bangluangsmile.com/retainer-lang-jadfan.html"><strong>รีเทนเนอร์หลังจัดฟัน</strong><span>วิธีใส่ ดูแล และช่วงเวลาที่ควรติดตามผล</span></a>
+  </div>
+</section>
 
 <!-- FAQ -->
 <section id="faq" class="about" style="background:var(--void)" aria-label="คำถามที่พบบ่อย จัดฟันปทุมธานี">
