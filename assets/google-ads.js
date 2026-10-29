@@ -9,7 +9,7 @@ gtag('config', 'AW-16850592359');
 document.addEventListener('click', function (event) {
   if (event.defaultPrevented || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
 
-  var lineLink = event.target.closest('a[href*="line.me/ti/p/~0959476759"]');
+  var lineLink = event.target.closest('a[href*="line.me/R/ti/p/%40bangluangsmile"]');
   var phoneLink = event.target.closest('a[href="tel:0959476759"]');
   var link = lineLink || phoneLink;
   if (!link) return;
