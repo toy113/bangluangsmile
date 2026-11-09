@@ -1,0 +1,70 @@
+# Tells Bing (and other IndexNow engines) which pages changed, right after each publish.
+# Bing's index is what ChatGPT Search and Microsoft Copilot read from.
+# Google does not use IndexNow; use Search Console for Google.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - 'llms.txt'
+  workflow_dispatch:
+    inputs:
+      all:
+        description: 'Submit every URL in sitemap.xml'
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    env:
+      SITE: https://bangluangsmile.com
+      INDEXNOW_KEY: f70e1df80ed37f1d50aefdd33e637dd2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Collect changed URLs
+        env:
+          BEFORE: ${{ github.event.before }}
+          AFTER: ${{ github.sha }}
+          SUBMIT_ALL: ${{ github.event_name == 'workflow_dispatch' && inputs.all }}
+        run: |
+          set -euo pipefail
+          if [ "$SUBMIT_ALL" = "true" ] || [ -z "${BEFORE:-}" ] || ! git cat-file -e "${BEFORE}^{commit}" 2>/dev/null; then
+            grep -o '<loc>[^<]*</loc>' sitemap.xml | sed -e 's/<loc>//' -e 's#</loc>##' > urls.txt
+          else
+            git diff --name-only --diff-filter=AM "$BEFORE" "$AFTER" -- '*.html' 'llms.txt' \
+              | grep -v -e '^404\.html$' -e '/' \
+              | sed -e "s#^index\.html\$#${SITE}/#" -e t -e "s#^#${SITE}/#" > urls.txt || true
+          fi
+          echo "URLs to submit:"; cat urls.txt
+
+      - name: Wait for GitHub Pages to publish
+        run: sleep 120
+
+      - name: Submit to IndexNow
+        run: |
+          python3 - <<'PY'
+          import json, os, sys, urllib.request, urllib.error
+          urls = [u.strip() for u in open("urls.txt") if u.strip()]
+          if not urls:
+              print("Nothing to submit"); sys.exit(0)
+          key, site = os.environ["INDEXNOW_KEY"], os.environ["SITE"]
+          body = json.dumps({"host": site.split("//")[1], "key": key,
+                             "keyLocation": f"{site}/{key}.txt", "urlList": urls}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
+                                       headers={"Content-Type": "application/json; charset=utf-8"})
+          try:
+              with urllib.request.urlopen(req, timeout=30) as r:
+                  print("IndexNow response:", r.status, "for", len(urls), "URL(s)")
+          except urllib.error.HTTPError as e:
+              print("IndexNow error:", e.code, e.read().decode(errors="replace"))
+              sys.exit(1)
+          PY
